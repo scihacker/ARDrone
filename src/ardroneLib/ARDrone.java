@@ -11,8 +11,6 @@ public class ARDrone extends Object {
     
     private Pcmd pc;
     int seq = 1;
-    //private int seq_last = 1;
-	//private String at_cmd_last = "";
 	private InetAddress inet_addr;
 	private DatagramSocket socket_at;
     
@@ -54,8 +52,6 @@ public class ARDrone extends Object {
 	}
 
 	public synchronized void send_at_cmd(String at_cmd) throws Exception {
-		// TODO: make any sense?
-    	// at_cmd_last = at_cmd;
     	byte[] buf_snd = (at_cmd + "\r").getBytes();
     	DatagramPacket packet_snd = new DatagramPacket(buf_snd, buf_snd.length, inet_addr, ARDrone.AT_PORT);
     	socket_at.send(packet_snd);
